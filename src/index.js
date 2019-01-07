@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 // import AppHeader from "./components/AppHeader";
 // import SearchPanel from "./components/SearchPanel";
 // import TodoList from "./components/TodoList";
-import App from "./components/App";
+import App from "./components/App/App";
 
 // export default class App {
 //     render() {

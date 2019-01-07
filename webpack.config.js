@@ -7,12 +7,22 @@ module.exports = {
             {
                 test: /\.(js|jsx)$/,
                 exclude: /node_modules/,
-                use: ['babel-loader']
+                loader: 'babel-loader',
+                options: {
+                    presets: [
+                        '@babel/preset-env',
+                        {
+                            plugins: [
+                                '@babel/plugin-proposal-class-properties'
+                            ]
+                        }
+                    ]
+                }
             },
             {
                 test: /\.(css|less)$/,
                 use: ["style-loader", "css-loader"]
-            }
+            },
         ]
     },
     resolve: {
@@ -23,9 +33,8 @@ module.exports = {
         publicPath: '/',
         filename: 'bundle.js'
     },
-    plugins: [
-        new webpack.HotModuleReplacementPlugin()
-    ],
+    plugins:
+        [new webpack.HotModuleReplacementPlugin()],
     devServer: {
         contentBase: './dist',
         hot: true
